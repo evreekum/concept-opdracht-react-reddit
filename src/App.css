@@ -19,11 +19,12 @@ h1,
 h2,
 h5 {
     font-family: 'Quicksand', sans-serif;
-    /*text-transform: capitalize;*/
+
 }
 
 h1 {
     font-size: 55px;
+    text-transform: capitalize;
 }
 
 h2 {
@@ -67,9 +68,10 @@ ul {
     font-size: 15px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 65px;
-    height: 300px;
-    padding: 20px 150px;
+    height: 30px;
+    padding: 20px 150px 20px;
 }
 
 li a,
@@ -81,20 +83,21 @@ li {
 
 
 header {
-    margin-top: -200px;
-    margin-bottom: 100px;
+    flex-basis: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background-color: var(--red-color);
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/*main {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
 
 
 
@@ -104,9 +107,9 @@ main {
     border: 2px solid black;
 }
 
-header {
-    border: 2px solid blue;
-}
+/*header {*/
+/*    border: 2px solid blue;*/
+/*}*/
 
 main {
     border: 2px solid darkorange;

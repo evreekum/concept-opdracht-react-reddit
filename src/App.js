@@ -1,26 +1,31 @@
 import "./App.css";
-import React, {useEffect} from "react";
+import React from "react";
 import NavBar from "./components/navigation/NavBar";
 import {Route, Switch} from "react-router-dom";
 import Home from "./pages/home/Home";
 import Subreddit from "./pages/subreddit/Subreddit";
-import axios from "axios";
+// import axios from "axios";
 
 
 function App() {
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const result = await axios.get(`https://www.reddit.com/hot.json?limit=15`);
-                console.log(result.data);
-            } catch (e) {
-                console.error(e);
-            }
-
-        }
-        fetchData();
-    }, []);
+    // const [redditData, setRedditData] = useState("");
+    //
+    //
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         try {
+    //             const result = await axios.get(`https://www.reddit.com/hot.json?limit=15`);
+    //             console.log(result.data.data.children);
+    //             setRedditData(result.data.data.children);
+    //
+    //         } catch (e) {
+    //             console.error(e);
+    //         }
+    //
+    //     }
+    //
+    //     fetchData();
+    // }, []);
 
     return (
         <>
@@ -35,6 +40,15 @@ function App() {
                         <Subreddit/>
                     </Route>
                 </Switch>
+                {/*{redditData && redditData.map((dataReddit) => {*/}
+                {/*return (*/}
+                {/*    <>*/}
+                {/*        <h2 key={dataReddit.title}>{dataReddit.data.title}</h2>*/}
+                {/*        <p key={dataReddit.name}>{dataReddit.data.subreddit_name_prefixed}</p>*/}
+                {/*        <p key={dataReddit.comments}>comments {dataReddit.data.num_comments}</p>*/}
+                {/*        <p key={dataReddit.ups}>ups {dataReddit.data.ups}</p>*/}
+
+                {/*    </>)})}*/}
             </div>
         </>
     );
