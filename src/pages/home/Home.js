@@ -3,9 +3,8 @@ import "./Home.css";
 import Header from "../../components/header/Header";
 import logo from "../../assets/reddit_logo.png";
 import axios from "axios";
-import NavBar from "../../components/navigation/NavBar";
-import {Route, Switch} from "react-router-dom";
-import Subreddit from "../subreddit/Subreddit";
+import {Link} from "react-router-dom";
+
 
 
 function Home() {
@@ -37,14 +36,14 @@ function Home() {
 
             </Header>
             <div className="inner_container">
-                <main>
+                <main className="reddit-card">
                     <h2>Hottest posts</h2>
                     <h5>on Reddit right now</h5>
                     {redditData && redditData.map((dataReddit) => {
                         return (
                             <>
-                                <h2 key={dataReddit.title}>{dataReddit.data.title}</h2>
-                                <p key={dataReddit.name}>{dataReddit.data.subreddit_name_prefixed}</p>
+                                <h2 key={dataReddit.title}><a href={dataReddit.data.url} target="_blank">{dataReddit.data.title}</a></h2>
+                                <p key={dataReddit.name}><Link to={`/subreddit/${dataReddit.data}`}>{dataReddit.data.subreddit_name_prefixed}</Link></p>
                                 <p key={dataReddit.comments}>comments {dataReddit.data.num_comments}</p>
                                 <p key={dataReddit.ups}>ups {dataReddit.data.ups}</p>
 

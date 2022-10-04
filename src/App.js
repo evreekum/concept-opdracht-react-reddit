@@ -40,15 +40,7 @@ function App() {
                         <Subreddit/>
                     </Route>
                 </Switch>
-                {/*{redditData && redditData.map((dataReddit) => {*/}
-                {/*return (*/}
-                {/*    <>*/}
-                {/*        <h2 key={dataReddit.title}>{dataReddit.data.title}</h2>*/}
-                {/*        <p key={dataReddit.name}>{dataReddit.data.subreddit_name_prefixed}</p>*/}
-                {/*        <p key={dataReddit.comments}>comments {dataReddit.data.num_comments}</p>*/}
-                {/*        <p key={dataReddit.ups}>ups {dataReddit.data.ups}</p>*/}
 
-                {/*    </>)})}*/}
             </div>
         </>
     );

@@ -14,7 +14,7 @@ function NavBar() {
                             <NavLink to="/" exact>hottest posts</NavLink>
                         </li>
                         <li>
-                            <a href="https://www.reddit.com/">reddit</a>
+                            <a href="https://www.reddit.com/" target="_blank">reddit</a>
                         </li>
                         <li>
                             memes
