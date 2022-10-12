@@ -1,8 +1,6 @@
 import React from "react";
-import logo from "../../assets/reddit_logo.png";
 
-
-function Header({title, children}) {
+function Header({title, subtitle, children}) {
 
 
     return (
@@ -10,6 +8,7 @@ function Header({title, children}) {
             <header>
                 {children}
                 <h1>{title}</h1>
+                <p>{subtitle}</p>
             </header>
         </>
     )

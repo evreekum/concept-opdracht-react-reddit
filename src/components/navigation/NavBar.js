@@ -17,7 +17,7 @@ function NavBar() {
                             <a href="https://www.reddit.com/" target="_blank">reddit</a>
                         </li>
                         <li>
-                            memes
+                            <a href="https:/www.reddit.com/r/memes" target="_blank"> memes</a>
                         </li>
                     </ul>
 

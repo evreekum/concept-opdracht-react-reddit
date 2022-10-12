@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from "react";
 import "./Subreddit.css";
 import Header from "../../components/header/Header";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
+import numberDots from "../../helperfuncties/numberDots";
+import Footer from "../../components/Footer";
+
 
 function Subreddit() {
-    // const [subRedditHeaderTitle, setSubRedditHeaderTitle] = useState("")
     const {subredditId} = useParams();
     const [subRedditData, setSubRedditData] = useState();
+    const [subRedditTitle, setSubRedditTitle] = useState();
 
     useEffect(() => {
         async function fetchData() {
@@ -15,6 +18,7 @@ function Subreddit() {
                 const result = await axios.get(`https://www.reddit.com/r/${subredditId}/about.json`);
                 console.log(result.data);
                 setSubRedditData(result.data);
+                setSubRedditTitle(result.data);
             } catch (e) {
                 console.error(e);
             }
@@ -25,35 +29,47 @@ function Subreddit() {
 
     return (
         <>
-            {/*<Header*/}
-            {/*    title={}>*/}
-
-            {/*</Header>*/}
+            {subRedditTitle &&
+                <>
+                    <div className="header_container" key={subRedditTitle.data.title}>
+                        <Header
+                            title={subRedditTitle.data.display_name_prefixed}
+                            subtitle="Subreddit specifications"
+                        />
+                    </div>
+                </>
+            }
 
             <div className="inner_container">
-
-                <h2>Subreddit page</h2>
-                <h5>subreddit specifications</h5>
                 {subRedditData &&
                     <>
-                        <section key={subRedditData.data.id}>
+                        <section className="subreddit-card" key={subRedditData.data.id}>
                             <article>
-                                <h3>title</h3>
+                                <h4>title</h4>
                                 <p>{subRedditData.data.title}</p>
                             </article>
+                            {/*<a className="subReddit-title"*/}
+                            {/*   href={subRedditData.data.url}*/}
+                            {/*   target="_blank"*/}
+                            {/*   rel="noreferrer">{subRedditData.data.title}</a>*/}
+
                             <article>
-                                <h3>description</h3>
+                                <h4>description</h4>
                                 <p>{subRedditData.data.public_description}</p>
                             </article>
                             <article>
-                                <h3>number of subscribers</h3>
-                                <p>{subRedditData.data.subscribers}</p>
+                                <h4>number of subscribers</h4>
+                                <p>{numberDots(subRedditData.data.subscribers)}</p>
                             </article>
+                            <Link className="back-link-link" to="/"><p className="back-link">Take me back</p></Link>
                         </section>
                     </>
                 }
 
             </div>
+
+
+            <Footer/>
         </>
     );
 }
